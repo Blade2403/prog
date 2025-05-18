@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>FAQ - PrognozAi.ru</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- 1. Хедер (Шапка сайта) -->
+    <header class="bg-header-footer shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-2 group">
+                <img src="img/logo.png" alt="PrognozAi.ru" class="h-10 md:h-12 w-auto logo-hover-effect">
+            </a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="/" class="text-gray-700 hover:text-accent-primary transition-colors font-medium">Главная</a>
+                <a href="/matches/" class="text-gray-700 hover:text-accent-primary transition-colors font-medium">Прогнозы</a>
+                <a href="/pricing/" class="text-gray-700 hover:text-accent-primary transition-colors font-medium">Тарифы</a>
+                <a href="/about-ai/" class="text-gray-700 hover:text-accent-primary transition-colors font-medium">Как работает Палыч?</a>
+                <a href="https://t.me/yourchannel" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-accent-primary transition-colors font-medium">Сообщество</a>
+                <a href="faq.html" class="text-accent-primary font-semibold transition-colors">FAQ</a>
+                <a href="/login/" class="text-gray-700 hover:text-accent-primary transition-colors px-4 py-2 rounded-md hover:bg-gray-100 font-medium text-sm">Войти</a>
+                <a href="/register/" class="button-base button-primary font-semibold text-sm">Регистрация</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" aria-label="Открыть меню" aria-expanded="false" class="text-gray-700 focus:outline-none p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200" aria-hidden="true">
+            <a href="/" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">Главная</a>
+            <a href="/matches/" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">Прогнозы</a>
+            <a href="/pricing/" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">Тарифы</a>
+            <a href="/about-ai/" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">Как работает Палыч?</a>
+            <a href="https://t.me/yourchannel" target="_blank" rel="noopener noreferrer" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">Сообщество</a>
+            <a href="faq.html" class="block py-3 px-4 text-sm text-accent-primary bg-gray-100 font-semibold transition-colors">FAQ</a>
+            <a href="/login/" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">Войти</a>
+            <a href="/register/" class="block button-base button-primary font-semibold text-center mx-4 my-3 text-sm">Регистрация</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero-секция страницы FAQ -->
+        <section class="faq-hero-section spacious-py pb-12 md:pb-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="flex justify-center items-center mb-4">
+                    <img src="img/palych_avatar_small.png" alt="Палыч" class="w-16 h-16 md:w-20 md:h-20 rounded-full mr-4 shadow-md">
+                    <h1 class="section-title text-primary mb-0 text-left md:text-center">Центр Помощи PrognozAi.ru</h1>
+                </div>
+                <p class="text-lg text-secondary max-w-2xl mx-auto leading-relaxed mb-8">
+                    Нашли ответ на свой вопрос? Здесь собрана вся ключевая информация о 'Палыче', наших прогнозах, подписках и многом другом.
+                </p>
+                <div class="max-w-xl mx-auto">
+                    <input type="search" id="faq-search-input" placeholder="Введите ключевое слово для поиска..." class="text-base">
+                </div>
+            </div>
+        </section>
+
+        <!-- Основной контент FAQ -->
+        <section class="spacious-py pt-0 md:pt-8">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:w-3/4 xl:w-2/3 mx-auto">
+                    
+                    <!-- Категория 1: Регистрация и аккаунт -->
+                    <div class="faq-category" id="category-account">
+                        <h2 class="section-title flex items-center">
+                            <svg class="w-7 h-7 mr-3 text-accent-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+                            Регистрация и аккаунт
+                        </h2>
+                        <div class="space-y-1 border-t border-gray-200 pt-2">
+                            <div class="faq-item" id="q-restore-access">
+                                <button aria-expanded="false" class="faq-question"><span>Как восстановить доступ к аккаунту?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>На странице входа нажмите "Забыли пароль?". Введите email, связанный с аккаунтом. Вы получите письмо со ссылкой для сброса пароля. Если письма нет в папке "Входящие", проверьте "Спам" или напишите в поддержку.</p></div></div>
+                            </div>
+                            <div class="faq-item border-t border-gray-200" id="q-telegram-link">
+                                <button aria-expanded="false" class="faq-question"><span>Можно ли привязать Telegram к аккаунту?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Да! В личном кабинете в разделе "Настройки" → "Интеграции" вы найдете инструкцию для подключения Telegram-бота. Это позволит получать прогнозы прямо в мессенджер.</p></div></div>
+                            </div>
+                            <div class="faq-item border-t border-gray-200" id="q-delete-account">
+                                <button aria-expanded="false" class="faq-question"><span>Как удалить аккаунт?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>В разделе "Настройки профиля" → "Безопасность" → "Удалить аккаунт". Внимание: Это действие необратимо. Все данные будут удалены в течение 72 часов.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Категория 2: Прогнозы и аналитика -->
+                    <div class="faq-category" id="category-forecasts">
+                        <h2 class="section-title flex items-center">
+                             <svg class="w-7 h-7 mr-3 text-accent-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12A2.25 2.25 0 0020.25 14.25V3m-16.5 0h16.5M3.75 0v.75A.75.75 0 013 1.5h-.75A.75.75 0 011.5.75V0m19.5 0v.75a.75.75 0 00-.75.75h.75a.75.75 0 00.75-.75V0M9 9.75h6m-6 3h6m-6 3h6" /></svg>
+                            Прогнозы и аналитика
+                        </h2>
+                        <div class="space-y-1 border-t border-gray-200 pt-2">
+                            <div class="faq-item" id="q-forecast-update">
+                                <button aria-expanded="false" class="faq-question"><span>Как часто обновляются прогнозы?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Прогнозы пересчитываются каждые 6 часов. Точное время обновления отмечено на карточке матча. Экстренные изменения (травмы игроков и т.д.) отражаются в режиме реального времени.</p></div></div>
+                            </div>
+                            <div class="faq-item border-t border-gray-200" id="q-coefficients">
+                                <button aria-expanded="false" class="faq-question"><span>Что означают коэффициенты в прогнозах?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Например, коэффициент 2.35 означает: если вы ставите 1000₽ и прогноз верен → вы получаете 2350₽ (1000 x 2.35). Подробнее в разделе "Как читать аналитику".</p></div></div>
+                            </div>
+                             <div class="faq-item border-t border-gray-200" id="q-accuracy-guarantee">
+                                <button aria-expanded="false" class="faq-question"><span>Гарантирует ли Палыч 100% точность?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Нет, это невозможно принципиально. Наша текущая точность — 87.4% (рассчитывается по завершенным матчам). Палыч постоянно учится, но всегда помните: футбол — игра с непредсказуемым исходом.</p></div></div>
+                            </div>
+                            <div class="faq-item border-t border-gray-200" id="q-how-forecasts-formed"> <!-- Из 📊 О ПРОГНОЗАХ -->
+                                <button aria-expanded="false" class="faq-question"><span>Как формируются прогнозы на матчи?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Прогнозы создаются с помощью ансамбля нейросетевых моделей, анализирующих более 100 факторов: форма команд, статистика, H2H, погодные условия, составы, мотивация, новости и другие. Итог — структурированный прогноз с вероятностями и аналитикой.</p></div></div>
+                            </div>
+                             <div class="faq-item border-t border-gray-200" id="q-info-update-before-match"> <!-- Из 📊 О ПРОГНОЗАХ -->
+                                <button aria-expanded="false" class="faq-question"><span>Обновляется ли информация перед началом матча?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Да. Система автоматически перепроверяет составы, травмы и другие критические данные за 1–2 часа до старта матча. В некоторых случаях ИИ может скорректировать ставку или вероятность.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Категория 3: Об ИИ «Палыч» и Технологиях -->
+                    <div class="faq-category" id="category-palych-ai">
+                        <h2 class="section-title flex items-center">
+                            <svg class="w-7 h-7 mr-3 text-accent-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0110.5 3h6a2.25 2.25 0 012.25 2.25v13.5A2.25 2.25 0 0116.5 21h-6a2.25 2.25 0 01-2.25-2.25V15m-3.007-3.861V5.25c0-.927.268-1.682.743-2.27a26.15 26.15 0 014.514-2.736A26.15 26.15 0 0112 0c1.046 0 2.073.103 3.007.301a26.15 26.15 0 014.514 2.736c.475.588.743 1.343.743 2.27v9.75c0 .927-.268 1.682-.743 2.27a26.15 26.15 0 01-4.514 2.736A26.15 26.15 0 0112 22.5c-1.046 0-2.073-.103-3.007-.301a26.15 26.15 0 01-4.514-2.736A2.243 2.243 0 013.75 15V5.25" /></svg>
+                            Об ИИ «Палыч» и Технологиях
+                        </h2>
+                        <div class="space-y-1 border-t border-gray-200 pt-2">
+                            <div class="faq-item group" id="q-who-is-palych">
+                                <button aria-expanded="false" class="faq-question"><span>Кто такой Палыч?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>«Палыч» — это персонаж, олицетворяющий ансамбль ИИ, стоящий за сервисом. Он создан на базе нескольких моделей: GPT-4o, DeepSeek (примеры), локальных моделей и регрессионной логики, обученной на более чем 500 000 матчей.</p></div></div>
+                            </div>
+                            <div class="faq-item group border-t border-gray-200" id="q-palych-learning">
+                                <button aria-expanded="false" class="faq-question"><span>Палыч умеет учиться?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Да. Каждое завершённое событие записывается в базу, и модель обновляется с учётом факта. Кроме того, пользователи могут помогать: оставлять оценки, инсайды и даже влиять на обучение.</p></div></div>
+                            </div>
+                             <div class="faq-item group border-t border-gray-200" id="q-talk-to-palych">
+                                <button aria-expanded="false" class="faq-question"><span>Можно ли поговорить с Палычем напрямую?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Да! Вы можете задать вопрос Палычу прямо на сайте (в соответствующем блоке) или через Telegram-бота. Он сгенерирует ответ в реальном времени, используя актуальные данные.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Категория 4: Оплата и Подписка -->
+                    <div class="faq-category" id="category-payment-subscription">
+                        <h2 class="section-title flex items-center">
+                            <svg class="w-7 h-7 mr-3 text-accent-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 21z" /></svg>
+                            Оплата и Подписка
+                        </h2>
+                         <div class="space-y-1 border-t border-gray-200 pt-2">
+                            <div class="faq-item group" id="q-subscription-options-detail"> <!-- Изменил ID, так как был дубль -->
+                                <button aria-expanded="false" class="faq-question"><span>Какие есть варианты подписки?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>На данный момент доступны:<br>• Разовый доступ к одному прогнозу (199 ₽)<br>• Месячная подписка (999 ₽)<br>• Квартальная и годовая с выгодой до 30% (информация на странице <a href="/pricing/" class="text-accent-primary hover:underline">Тарифы</a>).</p></div></div>
+                            </div>
+                            <div class="faq-item group border-t border-gray-200" id="q-access-after-payment">
+                                <button aria-expanded="false" class="faq-question"><span>Как я получу доступ после оплаты?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Сразу после успешной оплаты прогноз будет разблокирован в вашем Личном кабинете и Telegram (если вы привязали аккаунт). Также вы получите уведомление на указанный при регистрации email.</p></div></div>
+                            </div>
+                            <div class="faq-item group border-t border-gray-200" id="q-cancel-subscription-detail"> <!-- Изменил ID -->
+                                <button aria-expanded="false" class="faq-question"><span>Могу ли я отменить подписку?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Да. В Личном кабинете можно отключить автопродление или перейти на другой тариф. Мы не удерживаем платежи без вашего ведома. Отмена остановит автоматическое продление, но не возвращает средства за уже оплаченный период.</p></div></div>
+                            </div>
+                            <div class="faq-item group border-t border-gray-200" id="q-payment-systems-detail"> <!-- Изменил ID -->
+                                <button aria-expanded="false" class="faq-question"><span>Какие платежные системы вы поддерживаете?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Мы принимаем:<br>• Банковские карты (Visa/MC/MIR)<br>• ЮMoney<br>• Криптовалюта (USDT, Bitcoin)<br>• Qiwi (только для РФ)</p></div></div>
+                            </div>
+                            <div class="faq-item group border-t border-gray-200" id="q-refund-policy"> <!-- Изменил ID -->
+                                <button aria-expanded="false" class="faq-question"><span>Можно ли вернуть деньги за ошибочный прогноз?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Нет. Прогнозы — аналитический продукт, а не финансовый совет. Перед покупкой ознакомьтесь с пользовательским соглашением.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Категория 5: Безопасность и Данные -->
+                    <div class="faq-category" id="category-security">
+                        <h2 class="section-title flex items-center">
+                            <svg class="w-7 h-7 mr-3 text-accent-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.623 0-1.602-.396-3.126-1.126-4.452A11.959 11.959 0 0112 2.750a11.959 11.959 0 01-2.25-.036z" /></svg>
+                            Безопасность и Данные
+                        </h2>
+                         <div class="space-y-1 border-t border-gray-200 pt-2">
+                            <div class="faq-item group" id="q-payment-data-security">
+                                <button aria-expanded="false" class="faq-question"><span>Насколько безопасна оплата? / Как вы защищаете мои платежные данные?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Мы не храним данные карт. Все платежи обрабатываются через ЮKassa (сертификат PCI DSS Level 1). Для криптоплатежей используем защищенные кошельки через Guardarian.</p></div></div>
+                            </div>
+                            <div class="faq-item group border-t border-gray-200" id="q-personal-data-sharing">
+                                <button aria-expanded="false" class="faq-question"><span>Как защищаются мои личные данные? / Можете ли вы делиться моими данными с третьими лицами?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Мы соблюдаем закон «О персональных данных» и используем шифрование. Ваши email, Telegram и история подписок — только для внутреннего использования и не передаются третьим лицам, за исключением требований правоохранительных органов или для предоставления агрегированных данных без идентификации личности (для улучшения сервиса). Подробности в <a href="/privacy-policy/" class="text-accent-primary hover:underline">Политике конфиденциальности</a>.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Категория 6: Telegram, Доступ и Вовлечение -->
+                    <div class="faq-category" id="category-telegram-engagement">
+                        <h2 class="section-title flex items-center">
+                            <svg class="w-7 h-7 mr-3 text-accent-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75L11.25 12l2.625-2.25M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            Telegram, Доступ и Вовлечение
+                        </h2>
+                         <div class="space-y-1 border-t border-gray-200 pt-2">
+                            <div class="faq-item group" id="q-why-link-telegram">
+                                <button aria-expanded="false" class="faq-question"><span>Зачем привязывать Telegram?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Это удобно: вы получите доступ к прогнозам прямо в боте, сможете получать напоминания, участвовать в AMA-сессиях и писать Палычу напрямую.</p></div></div>
+                            </div>
+                             <div class="faq-item group border-t border-gray-200" id="q-how-to-join-closed-chat">
+                                <button aria-expanded="false" class="faq-question"><span>Как попасть в закрытый Telegram-чат?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Подписчики получают автоматическое приглашение в чат. Там обсуждаются прогнозы, инсайды, аналитика от других пользователей и иногда публикуются секретные сигналы от Палыча.</p></div></div>
+                            </div>
+                             <div class="faq-item group border-t border-gray-200" id="q-what-is-user-contribution">
+                                <button aria-expanded="false" class="faq-question"><span>Что такое вклад пользователя?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Вы можете:<br>• Оценивать прогнозы<br>• Сообщать инсайды (погода, травмы, психология команд)<br>• Получать баллы → продление подписки</p></div></div>
+                            </div>
+                             <div class="faq-item group border-t border-gray-200" id="q-setup-match-notifications">
+                                <button aria-expanded="false" class="faq-question"><span>Можно ли подключить уведомления о матчах?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Да. В мобильной версии (или в настройках Личного кабинета): Откройте карточку команды. Нажмите "🔔" → выберите тип уведомлений. Доступны опции: старт матча, голы, изменения в прогнозах.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Категория 7: Техническая поддержка -->
+                    <div class="faq-category" id="category-support">
+                        <h2 class="section-title flex items-center">
+                             <svg class="w-7 h-7 mr-3 text-accent-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+                            Техническая поддержка
+                        </h2>
+                         <div class="space-y-1 border-t border-gray-200 pt-2">
+                            <div class="faq-item group" id="q-support-response-time-detail"> <!-- Изменил ID -->
+                                <button aria-expanded="false" class="faq-question"><span>Сколько ждать ответа от поддержки?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>• По email: до 24 часов.<br>• В Telegram-чате: до 2 часов (работаем 08:00-22:00 МСК).<br>• Срочные вопросы (оплата/безопасность): приоритетный ответ в течение 30 минут.</p></div></div>
+                            </div>
+                            <div class="faq-item group border-t border-gray-200" id="q-sms-problem-detail"> <!-- Изменил ID -->
+                                <button aria-expanded="false" class="faq-question"><span>Почему не приходит SMS-код подтверждения?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>• Проверьте правильность номера.<br>• Убедитесь, что в вашей стране нет ограничений на международные SMS.<br>• Если проблема не решена — используйте аутентификацию через email.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Категория 8: Дополнительные возможности -->
+                     <div class="faq-category" id="category-features">
+                        <h2 class="section-title flex items-center">
+                            <svg class="w-7 h-7 mr-3 text-accent-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.332.183-.582.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.759 6.759 0 010-.255c.007-.378-.137-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            Дополнительные возможности
+                        </h2>
+                         <div class="space-y-1 border-t border-gray-200 pt-2">
+                            <div class="faq-item group" id="q-api-access-detail"> <!-- Изменил ID -->
+                                <button aria-expanded="false" class="faq-question"><span>Есть ли API для разработчиков?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Да! Доступно 3 тарифа:<br>• Бесплатный: 50 запросов/месяц (только исторические данные).<br>• Pro: 5000 запросов — 2990₽/месяц.<br>• Enterprise: Индивидуальные условия.<br><a href="/api-docs" class="text-accent-primary hover:underline">Документация API</a>.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Категория 9: Юридические аспекты -->
+                    <div class="faq-category" id="category-legal">
+                        <h2 class="section-title flex items-center">
+                            <svg class="w-7 h-7 mr-3 text-accent-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                            Юридические аспекты
+                        </h2>
+                         <div class="space-y-1 border-t border-gray-200 pt-2">
+                            <div class="faq-item group" id="q-legal-compatibility-detail"> <!-- Изменил ID -->
+                                <button aria-expanded="false" class="faq-question"><span>Совместим ли сервис с букмекерами?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Мы — независимая аналитическая платформа. Не сотрудничаем с букмекерскими конторами и не призываем к ставкам. Ответственность за использование прогнозов лежит на пользователе.</p></div></div>
+                            </div>
+                             <div class="faq-item group border-t border-gray-200" id="q-age-restrictions-detail"> <!-- Изменил ID -->
+                                <button aria-expanded="false" class="faq-question"><span>Есть ли возрастные ограничения?</span><svg class="faq-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                                <div class="faq-answer"><div class="pt-3 pb-5 px-1 text-secondary leading-relaxed"><p>Для бесплатного тарифа — 16+. Для платных подписок — 18+. Мы вправе запросить документы для верификации возраста.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Совет от Палыча -->
+                    <div class="mt-10 p-6 bg-blue-50 border border-blue-200 rounded-lg text-center md:col-span-full">
+                        <img src="img/palych_avatar_small.png" alt="Палыч" class="w-16 h-16 rounded-full mx-auto mb-3 shadow">
+                        <p class="text-accent-primary font-semibold mb-1">Совет от Палыча:</p>
+                        <p class="text-secondary italic text-sm">"Всегда проверяйте несколько источников перед принятием решений. Помните — даже ИИ иногда ошибается, как и тренеры с 30-летним опытом! 🤖⚽"</p>
+                    </div>
+
+                </div> 
+            </div>
+        </section>
+
+        <!-- Блок "Не нашли ответ?" -->
+        <section class="faq-contact-section spacious-py">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+                <img src="img/palych_avatar_small.png" class="w-20 h-20 md:w-24 md:h-24 mx-auto mb-6 rounded-full shadow-lg" alt="Палыч">
+                <h2 class="section-title text-center mb-4">Остались Вопросы?</h2>
+                <p class="text-lg text-secondary mb-8 leading-relaxed">
+                    Если вы не нашли ответ на свой вопрос, Палыч и наша команда поддержки всегда готовы помочь. Свяжитесь с нами удобным для вас способом!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:support@prognozai.ru" class="button-base button-outline w-full sm:w-auto">
+                        <svg class="w-5 h-5 mr-2 inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                        Написать на почту
+                    </a>
+                    <a href="https://t.me/PrognozAi_bot" target="_blank" rel="noopener noreferrer" class="button-base button-primary w-full sm:w-auto">
+                         <svg class="w-5 h-5 mr-2 inline-block" fill="currentColor" viewBox="0 0 24 24"><path d="M11.984 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0zm4.903 7.822l-1.534 7.209c-.128.601-.526.753-.995.474l-2.285-1.677-1.102 1.057c-.121.12-.224.223-.407.223-.217 0-.334-.084-.469-.223l-1.102-1.057-2.285 1.677c-.47.279-.867.127-.995-.474L5.08 7.822c-.154-.722.407-.977.995-.753l10.013 3.917c.726.28.726.68.128.864l-2.55 1.875 5.13-4.83c.224-.21.099-.33-.154-.113z"/></svg>
+                        Telegram-бот поддержки
+                    </a>
+                </div>
+                 <p class="text-xs text-gray-400 mt-6">Также вы можете предложить свой вопрос для добавления в FAQ, написав нам на почту с темой "Вопрос для FAQ".</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер (Подвал сайта) -->
+    <footer class="bg-footer py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+                <div class="mb-6 md:mb-0">
+                    <a href="/" class="inline-block mb-3">
+                        <img src="img/logo.png" alt="PrognozAi.ru" class="h-8 w-auto opacity-90 hover:opacity-100 transition-opacity">
+                    </a>
+                    <p class="text-secondary">© PrognozAi.ru, <span id="current-year"></span>.<br>Все права защищены.</p>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-primary mb-3 uppercase tracking-wider text-xs">Навигация</h5>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-secondary hover:text-accent-primary transition-colors">Главная</a></li>
+                        <li><a href="/matches/" class="text-secondary hover:text-accent-primary transition-colors">Прогнозы</a></li>
+                        <li><a href="/pricing/" class="text-secondary hover:text-accent-primary transition-colors">Тарифы</a></li>
+                        <li><a href="/about-ai/" class="text-secondary hover:text-accent-primary transition-colors">Как работает Палыч?</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-primary mb-3 uppercase tracking-wider text-xs">Информация</h5>
+                    <ul class="space-y-2">
+                        <li><a href="/privacy-policy/" class="text-secondary hover:text-accent-primary transition-colors">Политика конфиденциальности</a></li>
+                        <li><a href="/terms-of-service/" class="text-secondary hover:text-accent-primary transition-colors">Пользовательское соглашение</a></li>
+                        <li><a href="/contacts/" class="text-secondary hover:text-accent-primary transition-colors">Контакты</a></li>
+                         <li class="mt-3">
+                            <a href="https://t.me/yourchannel" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-secondary hover:text-accent-primary transition-colors">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M11.984 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0zm4.903 7.822l-1.534 7.209c-.128.601-.526.753-.995.474l-2.285-1.677-1.102 1.057c-.121.12-.224.223-.407.223-.217 0-.334-.084-.469-.223l-1.102-1.057-2.285 1.677c-.47.279-.867.127-.995-.474L5.08 7.822c-.154-.722.407-.977.995-.753l10.013 3.917c.726.28.726.68.128.864l-2.55 1.875 5.13-4.83c.224-.21.099-.33-.154-.113z"/></svg>
+                                Telegram Канал
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 text-xs mt-10 border-t border-gray-200 pt-8">
+                PrognozAi.ru не является букмекерской конторой и не принимает ставки. Информация предоставляется в ознакомительных целях. Играйте ответственно. 18+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Основной скрипт сайта (для меню, общих анимаций и т.д. Он должен быть уже подключен, если это тот же script.js) -->
+    <!-- <script src="script.js"></script> --> 
+    
+    <!-- Скрипт для FAQ аккордеона и поиска (используем твой последний вариант) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+            // console.log(`FAQ Page: Found ${faqItems.length} FAQ items for accordion.`);
+            
+            faqItems.forEach(item => {
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-icon');
+                const button = item.querySelector('.faq-question'); // Добавлено для aria-expanded
+
+                item.classList.remove('active'); // Убедимся, что нет класса active
+                if (answer) {
+                    answer.style.maxHeight = '0';
+                    answer.style.opacity = '0';
+                    answer.style.paddingTop = '0';
+                    answer.style.paddingBottom = '0';
+                    // answer.style.marginTop = '0'; // Если был такой стиль
+                }
+                if (icon) {
+                    icon.classList.remove('rotate-180');
+                }
+                if (button) {
+                    button.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            faqItems.forEach(item => {
+                const button = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const icon = button.querySelector('.faq-icon');
+
+                if (button && answer && icon) {
+                    button.addEventListener('click', () => {
+                        const isOpen = item.classList.contains('active');
+                        
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item && otherItem.classList.contains('active')) {
+                                otherItem.classList.remove('active');
+                                const otherAnswer = otherItem.querySelector('.faq-answer');
+                                const otherIcon = otherItem.querySelector('.faq-icon');
+                                otherAnswer.style.maxHeight = '0';
+                                otherAnswer.style.opacity = '0';
+                                otherAnswer.style.paddingTop = '0';
+                                otherAnswer.style.paddingBottom = '0';
+                                otherIcon.classList.remove('rotate-180');
+                                otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                            }
+                        });
+
+                        if (!isOpen) {
+                            item.classList.add('active');
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            answer.style.opacity = '1';
+                            answer.style.paddingTop = '0.75rem'; 
+                            answer.style.paddingBottom = '1.25rem';
+                            icon.classList.add('rotate-180');
+                            button.setAttribute('aria-expanded', 'true');
+                        } else {
+                            item.classList.remove('active');
+                            answer.style.maxHeight = '0';
+                            answer.style.opacity = '0';
+                            answer.style.paddingTop = '0';
+                            answer.style.paddingBottom = '0';
+                            icon.classList.remove('rotate-180');
+                            button.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                }
+            });
+
+            const searchInput = document.getElementById('faq-search-input');
+            if (searchInput) {
+                searchInput.addEventListener('input', function(event) {
+                    const searchTerm = event.target.value.toLowerCase().trim();
+                    let visibleQuestionsTotal = 0;
+
+                    document.querySelectorAll('.faq-category').forEach(category => {
+                        let visibleQuestionsInCategory = 0;
+                        const itemsInCategory = category.querySelectorAll('.faq-item');
+                        
+                        itemsInCategory.forEach(item => {
+                            const questionEl = item.querySelector('.faq-question span');
+                            const answerContainerEl = item.querySelector('.faq-answer > div'); // Ищем div внутри .faq-answer
+                            
+                            if (!questionEl || !answerContainerEl) return;
+
+                            const questionText = questionEl.textContent.toLowerCase();
+                            const answerText = answerContainerEl.textContent.toLowerCase();
+                            const isMatch = questionText.includes(searchTerm) || answerText.includes(searchTerm);
+                            
+                            if (isMatch) {
+                                item.style.display = '';
+                                visibleQuestionsInCategory++;
+                                visibleQuestionsTotal++;
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+
+                        if (visibleQuestionsInCategory === 0 && searchTerm !== '') {
+                            category.style.display = 'none';
+                        } else {
+                            category.style.display = '';
+                        }
+                    });
+
+                    let noResultsMessage = document.getElementById('faq-no-results');
+                    const faqContentContainer = document.querySelector('.lg\\:w-3\\/4.xl\\:w-2\\/3.mx-auto');
+
+                    if (faqContentContainer) {
+                        if (!noResultsMessage) {
+                            noResultsMessage = document.createElement('p');
+                            noResultsMessage.id = 'faq-no-results';
+                            noResultsMessage.className = 'text-secondary text-center py-10 text-lg';
+                            faqContentContainer.appendChild(noResultsMessage);
+                        }
+
+                        if (visibleQuestionsTotal === 0 && searchTerm !== '') {
+                            noResultsMessage.textContent = 'К сожалению, по вашему запросу ничего не найдено.';
+                            noResultsMessage.style.display = 'block';
+                        } else {
+                            noResultsMessage.style.display = 'none';
+                        }
+                    }
+                });
+            }
+             // Подключение основного скрипта, если он не подключен ранее или его функции нужны здесь
+            // Если script.js уже содержит DOMContentLoaded и инициализирует общие вещи,
+            // то этот второй DOMContentLoaded для FAQ может быть избыточен, но обычно безвреден.
+            // Для чистоты лучше иметь один главный DOMContentLoaded в script.js, 
+            // а специфичные для FAQ функции вызывать из него, проверяя наличие нужных элементов.
+            // Но для данного примера такой вариант тоже будет работать.
+        });
+    </script>
+</body>
+</html>

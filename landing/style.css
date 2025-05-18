@@ -1,0 +1,681 @@
+/* style.css */
+/* Импорт шрифтов Inter и Playfair Display */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+/*
+Можно использовать CSS переменные для удобства, если много повторяющихся значений.
+Пример:
+:root {
+    --color-bg-main: #FFFFFF;
+    --color-bg-alt: #F8F9FA;
+    --color-bg-pricing-section: #FAFAFC;
+    --color-text-primary: #212529;
+    --color-text-secondary: #6C757D;
+    --color-accent-primary: #007AFF; /* Синий */
+    --color-accent-secondary: #198754; /* Зеленый */
+    --color-accent-warning: #FFC107; /* Желтый */
+    --color-border-light: #E0E0E0;
+    --color-border-default: #DEE2E6;
+}
+*/
+
+body {
+  background-color: #FFFFFF; 
+  color: #212529; 
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Стили для секций */
+.bg-section-main {
+    background-color: #FFFFFF;
+}
+.bg-section-alt {
+    background-color: #F8F9FA;
+}
+.pricing-section { /* Для страницы тарифов */
+  background-color: #FAFAFC;
+}
+
+/* Хедер и Футер */
+.bg-header-footer {
+    background-color: #FFFFFF; 
+    border-bottom: 1px solid #DEE2E6;
+}
+.bg-footer {
+    background-color: #F8F9FA;
+    border-top: 1px solid #DEE2E6;
+}
+
+/* Текстовые утилиты */
+.text-primary { color: #212529; }
+.text-secondary { color: #6C757D; }
+.text-accent-primary { color: #007AFF; }
+.text-accent-secondary { color: #198754; }
+.text-accent-warning { color: #FFC107; }
+
+/* Заголовки секций (с Playfair Display) */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; 
+    letter-spacing: -0.05em; 
+    position: relative;
+    margin-bottom: 2.5rem; 
+    color: #212529; 
+    line-height: 1.2;
+}
+.section-title.text-center:after {
+    margin-left: auto;
+    margin-right: auto;
+}
+.section-title:after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #007AFF; 
+    margin-top: 1rem; 
+}
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.2rem; 
+        margin-bottom: 2rem;
+    }
+    .section-title:after {
+        width: 50px;
+        height: 2px;
+        margin-top: 0.8rem;
+    }
+}
+
+/* Кнопки */
+.button-base {
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.5rem; 
+    font-weight: 600; 
+    font-size: 1rem; 
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    display: inline-block;
+    line-height: 1.5; 
+    border: 2px solid transparent; /* Для outline, чтобы не было скачка размера */
+}
+.button-primary {
+    background-color: #007AFF; 
+    color: #FFFFFF;
+    border-color: #007AFF;
+}
+.button-primary:hover {
+    background-color: #0062CC; 
+    border-color: #0062CC;
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.2);
+}
+.button-secondary { 
+    background-color: #198754; 
+    color: #FFFFFF;
+    border-color: #198754;
+}
+.button-secondary:hover {
+    background-color: #13653F;
+    border-color: #13653F;
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 4px 15px rgba(25, 135, 84, 0.2);
+}
+.button-outline {
+    background-color: transparent;
+    color: #007AFF;
+    border-color: #007AFF;
+}
+.button-outline:hover {
+    background-color: rgba(0, 122, 255, 0.07);
+    color: #005cbf;
+    border-color: #005cbf;
+}
+
+/* Карточки */
+.card-default { 
+    background-color: #FFFFFF;
+    border: 1px solid #E9ECEF;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06); 
+    border-radius: 0.75rem; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-default:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+.pricing-card { 
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0; 
+  box-shadow: 0 12px 24px rgba(0,0,0,0.06); 
+  border-radius: 0.75rem; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; 
+  flex-direction: column;
+}
+.pricing-card:hover {
+  transform: translateY(-6px); 
+  box-shadow: 0 18px 30px rgba(0,0,0,0.08); 
+}
+.pricing-card .price { 
+    font-size: 2.75rem; 
+    font-weight: 700;
+    color: #212529; 
+    margin-top: 0.5rem; 
+    margin-bottom: 1rem; 
+}
+.pricing-card.popular { 
+    border: 2px solid #007AFF; 
+    transform: scale(1.03); /* Немного увеличим выделенную карточку */
+}
+.pricing-card.popular:hover {
+    transform: translateY(-6px) scale(1.05); /* Усилим эффект при наведении */
+}
+.pricing-card.popular .button-primary { 
+    background-color: #007AFF;
+    color: #FFFFFF;
+}
+.pricing-card.popular .button-primary:hover {
+    background-color: #005cbf;
+}
+.pricing-card .button-base { 
+    margin-top: auto; 
+}
+
+/* Hero Gradient */
+.hero-gradient-bg {
+    background-color: #F8F9FA;
+    position: relative;
+}
+.hero-gradient-bg::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        radial-gradient(ellipse at 15% 20%, rgba(0, 122, 255, 0.04) 0%, transparent 70%),
+        radial-gradient(ellipse at 85% 75%, rgba(25, 135, 84, 0.04) 0%, transparent 70%);
+    opacity: 0.9;
+    z-index: 0;
+}
+
+/* Аватар Палыча */
+.avatar-palych-effect {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 0.75rem; 
+}
+.avatar-palych-effect:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); 
+}
+
+/* Анимация появления элементов при скролле */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(25px); 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+/* Чат с Палычем */
+.palych-chat-bubble {
+    max-width: 80%;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    background-color: #EFF2F5; 
+    color: #212529; 
+    align-self: flex-start; 
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+.palych-chat-bubble::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -6px; 
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 0; 
+    border-color: transparent #EFF2F5 transparent transparent;
+    transform: translateY(-1px); 
+}
+.palych-chat-bubble strong { 
+    color: #007AFF; 
+}
+.user-chat-bubble {
+    max-width: 80%;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    background-color: #007AFF; 
+    color: #FFFFFF; 
+    align-self: flex-end; 
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 122, 255, 0.2);
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+.user-chat-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -6px; 
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 10px 10px; 
+    border-color: transparent transparent transparent #007AFF;
+    transform: translateY(-1px); 
+}
+.user-chat-bubble p:first-child {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+}
+.palych-loading p:last-child {
+    font-style: italic;
+}
+.error-bubble {
+    background-color: #fee2e2; 
+    border: 1px solid #f87171; 
+}
+.error-bubble p:first-child strong { 
+    color: #ef4444; 
+}
+.error-bubble p:last-child {
+    color: #b91c1c; 
+}
+
+/* Блок Статистика успеха */
+.stats-card {
+    background: linear-gradient(135deg, #007AFF 0%, #0056b3 100%); 
+    color: white;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.75rem; 
+    padding: 1.75rem; 
+    box-shadow: 0 8px 20px rgba(0, 122, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stats-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 28px rgba(0, 122, 255, 0.3);
+}
+.stats-card:before { 
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 50%; 
+    left: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 60%);
+    transform: translate(-50%, -50%); 
+    transition: opacity 0.3s ease, transform 0.4s ease; 
+    opacity: 0.7;
+}
+.stats-card:hover:before {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.1); 
+}
+.stats-card .stat-number {
+    font-size: 2.75rem; 
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    line-height: 1.1;
+}
+.stats-card .stat-label {
+    font-size: 0.95rem; 
+    opacity: 0.9;
+}
+.stats-card .stat-icon { 
+    position: absolute;
+    bottom: 0.75rem;
+    right: 1rem;
+    opacity: 0.15; 
+    font-size: 3.75rem; 
+    font-weight: 700;
+    user-select: none;
+    z-index: 0; 
+}
+
+/* Карточки матчей с 3D эффектом */
+.match-card { 
+    perspective: 1000px;
+}
+.match-card-inner { 
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    transform-style: preserve-3d; 
+    position: relative; 
+    z-index: 1;
+}
+.match-card:hover .match-card-inner {
+    transform: rotateY(4deg) rotateX(1deg) scale(1.03); 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0,0,0,0.04); 
+}
+.match-card-content {
+    transform: translateZ(15px); 
+}
+
+/* Прогресс-бары (УНИВЕРСАЛЬНЫЕ СТИЛИ) */
+.progress-bar-container {
+    background-color: #E0E0E0; 
+    border-radius: 9999px;
+    height: 1rem; /* Дефолтная высота, можно переопределить */
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.07);
+    position: relative;
+}
+.progress-bar-container.with-text-inside { /* Для прогресс-баров с текстом ВНУТРИ */
+    height: 2.25rem; 
+}
+.progress-bar-fill {
+    background: linear-gradient(to right, #198754, #28a745, #20C997); /* Зеленый по умолчанию */
+    color: white;
+    font-weight: 600;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    transition: width 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    width: 0%; /* Начальная ширина для анимации JS */
+    font-size: 0.8rem; 
+}
+/* Стиль для тонких прогресс-баров рейтинга */
+.rating-progress-bar .progress-bar-container {
+    height: 0.5rem; 
+    background-color: #e5e7eb; 
+}
+.rating-progress-bar .progress-bar-fill {
+    background-color: #007AFF; /* Синий для рейтинга */
+    color: transparent; /* Текст не нужен */
+    text-shadow: none;
+    font-size: 0;
+}
+/* Альтернативные цвета для .progress-bar-fill */
+.progress-bar-fill.orange-style {
+    background: linear-gradient(to right, #F97316, #FB923C);
+}
+.progress-bar-fill.blue-style { /* Можно использовать для рейтинга, если не через .rating-progress-bar */
+    background: linear-gradient(to right, #007AFF, #3b82f6);
+}
+.progress-goal-text { 
+    font-size: 0.875rem; 
+    color: #6C757D;
+    margin-top: 0.5rem;
+}
+/* .progress-bar-text - стили для текста внутри бара, уже учтены в .progress-bar-fill */
+
+
+/* Бейджи рангов пользователей (из `community.html` предложений) */
+.user-rank-badge {
+    /* Tailwind классы будут применены в HTML: px-2.5 py-1 text-xs font-semibold rounded-full inline-block */
+    display: inline-block; 
+}
+.user-rank-1 .user-rank-badge { background-image: linear-gradient(to right, var(--tw-gradient-stops)); --tw-gradient-from: #facc15; --tw-gradient-to: #eab308; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); color: #422006; } 
+.user-rank-2 .user-rank-badge { background-image: linear-gradient(to right, var(--tw-gradient-stops)); --tw-gradient-from: #a1a1aa; --tw-gradient-to: #71717a; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); color: white; } 
+.user-rank-3 .user-rank-badge { background-image: linear-gradient(to right, var(--tw-gradient-stops)); --tw-gradient-from: #fb923c; --tw-gradient-to: #f97316; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); color: white; } 
+
+/* Карточки событий (Community Page) */
+.event-card {
+    cursor: pointer;
+    transition-property: transform, box-shadow; 
+}
+
+/* Наведение на карточку пользователя (Community Page) */
+.user-card:hover .user-avatar { 
+    outline: 2px solid #007AFF; 
+    outline-offset: 2px;
+}
+
+/* Инпуты (если нужны на странице Сообщества или других) */
+.input-base {
+    width: 100%;
+    padding: 0.625rem 1rem; 
+    border: 1px solid #d1d5db; 
+    border-radius: 0.5rem; 
+    transition: all 0.2s ease-in-out;
+}
+.input-base:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    border-color: transparent; 
+    box-shadow: 0 0 0 2px #007AFF; 
+}
+
+/* Утилиты для отступов */
+.spacious-py {
+    padding-top: 5rem; 
+    padding-bottom: 5rem;
+}
+@media (min-width: 768px) {
+    .spacious-py {
+        padding-top: 6.5rem; 
+        padding-bottom: 6.5rem;
+    }
+}
+@media (min-width: 1024px) {
+    .spacious-py {
+        padding-top: 8rem; 
+        padding-bottom: 8rem;
+    }
+}
+
+/* Общие адаптивные размеры шрифтов (базовые) */
+h1 { font-size: 2.5rem; line-height: 1.2; font-weight: 700; } 
+h2 { font-size: 2rem; line-height: 1.25; font-weight: 700; } 
+h3 { font-size: 1.5rem; line-height: 1.3; font-weight: 600; } 
+.text-lg { font-size: 1.125rem; line-height: 1.7; } 
+.text-xl { font-size: 1.25rem; line-height: 1.6; } 
+
+@media (min-width: 768px) {
+    h1 { font-size: 3rem; } 
+    h2 { font-size: 2.5rem; } 
+    h3 { font-size: 1.75rem; } 
+}
+@media (min-width: 1024px) {
+    h1 { font-size: 3.25rem; } 
+}
+
+/* =============================================== */
+/* Стили специфичные для страницы FAQ              */
+/* =============================================== */
+.faq-hero-section {
+    background-color: #F8F9FA; 
+}
+.faq-category {
+    margin-bottom: 3rem; 
+}
+.faq-category .section-title { 
+    font-size: 2rem; 
+    margin-bottom: 1.5rem; 
+    text-align: left; 
+}
+.faq-category .section-title:after { 
+    margin-left: 0; 
+    margin-right: auto;
+    background-color: #007AFF; 
+    width: 50px;
+    height: 2.5px;
+}
+@media (max-width: 768px) {
+    .faq-category .section-title {
+        font-size: 1.75rem;
+    }
+}
+.faq-item { /* Границу лучше добавлять здесь, если нужна между всеми вопросами */
+    border-bottom: 1px solid #E0E0E0; 
+}
+.faq-item:first-child { /* Убираем верхнюю границу у первого вопроса в категории (т.к. есть граница от .pt-2 у родителя) */
+    /* border-top: none; */ 
+}
+.faq-item:last-child {
+     border-bottom: none; 
+}
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 0.25rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem; 
+    font-weight: 600; 
+    color: #212529; 
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: color 0.2s ease;
+}
+.faq-question:hover,
+.faq-question:focus {
+    color: #007AFF; 
+    outline: none;
+}
+.faq-icon { 
+    width: 1.25rem; 
+    height: 1.25rem;
+    color: #6C757D; 
+    transform-origin: center; 
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+.faq-icon.rotate-180 { 
+    transform: rotate(180deg);
+    color: #007AFF; 
+}
+.faq-answer {
+    overflow: hidden;
+    max-height: 0; 
+    opacity: 0;    
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, padding-top 0.4s ease-in-out, padding-bottom 0.4s ease-in-out; 
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    padding-top: 0; 
+    padding-bottom: 0;
+}
+/* .faq-item.active .faq-answer - этот селектор больше не нужен, JS управляет напрямую */
+/* Паддинги для открытого ответа устанавливаются JS при установке maxHeight */
+.faq-answer p, 
+.faq-answer ul, 
+.faq-answer ol {
+    font-size: 1rem; 
+    color: #4A5568; 
+    line-height: 1.65;
+    margin-bottom: 0.75rem;
+}
+.faq-answer ul, .faq-answer ol {
+    padding-left: 1.25rem; 
+}
+.faq-answer ul li { list-style-type: disc; }
+.faq-answer ol li { list-style-type: decimal; }
+.faq-answer a {
+    color: #007AFF;
+    text-decoration: underline;
+    font-weight: 500;
+}
+.faq-answer a:hover { color: #005cbf; }
+.faq-answer strong, .faq-answer b {
+    font-weight: 600;
+    color: #212529;
+}
+#faq-search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #DEE2E6;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+#faq-search-input:focus {
+    outline: none;
+    border-color: #007AFF;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15);
+}
+.faq-contact-section {
+    background-color: #F8F9FA; 
+    border-top: 1px solid #DEE2E6;
+    margin-top: 3rem; 
+}
+.faq-contact-section .section-title {
+    font-size: 1.75rem; 
+}
+.faq-contact-section .section-title:after {
+    display: none; 
+}
+
+/* Логотип hover effect */
+.logo-hover-effect {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+.logo-hover-effect:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Стили для печати */
+@media print {
+  body {
+    font-size: 11pt; 
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    font-family: 'Times New Roman', Times, serif; 
+  }
+  header, footer, #mobile-menu, 
+  .faq-hero-section .max-w-xl, 
+  .top-questions-aside, .faq-contact-section,
+  .button-base, .stat-icon, .avatar-palych-effect, 
+  .progress-bar-container, .donation-btn,
+  .match-card-inner img, .logo-hover-effect,
+  #ask-palych-form button 
+   { display: none !important; }
+
+  main { padding-top: 1cm !important; padding-bottom: 1cm !important; }
+  section, .container {
+    padding-left: 0 !important; padding-right: 0 !important;
+    margin-left: 0 !important; margin-right: 0 !important;
+    max-width: 100% !important; width: 100% !important;
+  }
+  .section-title {
+    font-family: 'Times New Roman', Times, serif !important;
+    color: #000000 !important;
+    font-size: 16pt !important;
+    text-align: left !important;
+    margin-bottom: 0.5cm !important;
+  }
+  .section-title:after { display: none !important; }
+  .faq-category .section-title { font-size: 14pt !important; margin-bottom: 0.3cm !important; }
+  .faq-item { page-break-inside: avoid; border-bottom: 1px solid #ccc !important; }
+  .faq-question {
+    font-size: 12pt !important; color: #000000 !important;
+    font-weight: bold !important; padding: 0.5cm 0 !important;
+  }
+  .faq-question .faq-icon { display: none !important; }
+  .faq-answer {
+    max-height: none !important; display: block !important;
+    opacity: 1 !important; 
+    padding: 0.2cm 0 0.5cm 0 !important;
+  }
+  .faq-answer p, .faq-answer ul, .faq-answer ol {
+    font-size: 11pt !important; color: #000000 !important;
+    line-height: 1.4 !important;
+  }
+  a { color: #0000EE !important; text-decoration: underline !important; }
+  img { max-width: 100% !important; height: auto !important; page-break-inside: avoid; }
+  .stats-card, .card-default, .pricing-card {
+      box-shadow: none !important; border: 1px solid #ccc !important;
+      page-break-inside: avoid;
+  }
+  #palych-answer-area, #palych-question { 
+      display: none !important;
+  }
+}

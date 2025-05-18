@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>PrognozAi.ru - Футбольные Прогнозы от ИИ 'Палыча'</title>
+    <link rel="icon" type="image/png" href="img/favicon.png"> <!-- Убедись, что favicon.png есть в папке img -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- 1. Хедер (Шапка сайта) -->
+    <header class="bg-header-footer shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-2 group">
+                <img src="img/logo.png" alt="PrognozAi.ru" class="h-10 md:h-12 w-auto logo-hover-effect">
+            </a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-gray-700 hover:text-accent-primary transition-colors font-medium">Главная</a>
+                <a href="/matches/" class="text-gray-700 hover:text-accent-primary transition-colors font-medium">Прогнозы</a>
+                <a href="/pricing/" class="text-gray-700 hover:text-accent-primary transition-colors font-medium">Тарифы</a>
+                <a href="/about-ai/" class="text-gray-700 hover:text-accent-primary transition-colors font-medium">Как работает Палыч?</a>
+                <a href="https://t.me/yourchannel" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-accent-primary transition-colors font-medium">Сообщество</a>
+                <a href="/faq/" class="text-gray-700 hover:text-accent-primary transition-colors font-medium">FAQ</a>
+                <a href="/login/" class="text-gray-700 hover:text-accent-primary transition-colors px-4 py-2 rounded-md hover:bg-gray-100 font-medium text-sm">Войти</a>
+                <a href="/register/" class="button-base button-primary font-semibold text-sm">Регистрация</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" aria-label="Открыть меню" aria-expanded="false" class="text-gray-700 focus:outline-none p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200" aria-hidden="true">
+            <a href="#" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">Главная</a>
+            <a href="/matches/" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">Прогнозы</a>
+            <a href="/pricing/" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">Тарифы</a>
+            <a href="/about-ai/" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">Как работает Палыч?</a>
+            <a href="https://t.me/yourchannel" target="_blank" rel="noopener noreferrer" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">Сообщество</a>
+            <a href="/faq/" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">FAQ</a>
+            <a href="/login/" class="block py-3 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent-primary transition-colors">Войти</a>
+            <a href="/register/" class="block button-base button-primary font-semibold text-center mx-4 my-3 text-sm">Регистрация</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. Hero-секция -->
+        <section class="hero-gradient-bg spacious-py relative overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="md:flex md:items-center md:justify-between">
+                    <div class="md:w-3/5 md:pr-12 mb-12 md:mb-0 text-center md:text-left">
+                        <h1 class="section-title text-primary text-center md:text-left">Футбольные прогнозы<span class="text-accent-primary block mt-1 md:mt-2">с искусственным интеллектом</span></h1>
+                        <p class="text-xl text-secondary max-w-xl mx-auto md:mx-0 leading-relaxed mb-10">
+                            Точность прогнозов <span class="font-semibold text-accent-secondary">73.4%</span> по данным за 2024 год. Присоединяйтесь к <span class="font-semibold text-primary">15,329</span> довольным пользователям!
+                        </p>
+                        <a href="#free-forecast" class="button-base button-primary font-bold text-lg py-3.5 px-10">
+                            Посмотреть Бесплатный Прогноз
+                        </a>
+                    </div>
+                    <div class="md:w-2/5 flex justify-center md:justify-end mt-10 md:mt-0">
+                        <img src="img/palych_avatar.png" alt="ИИ-Ассистент Палыч" class="avatar-palych-effect shadow-xl w-full max-w-xs sm:max-w-sm md:max-w-[380px] object-contain h-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Новый блок: Статистика успеха -->
+        <section class="spacious-py bg-section-alt">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+                    <div class="stats-card">
+                        <div class="stat-number">73.4%</div>
+                        <div class="stat-label">Точность прогнозов</div>
+                        <div class="stat-icon">🎯</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stat-number">15,329+</div>
+                        <div class="stat-label">Довольных пользователей</div>
+                        <div class="stat-icon">😊</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stat-number">2.1M+</div>
+                        <div class="stat-label">Проанализированных матчей</div>
+                        <div class="stat-icon">📈</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок "Как работает наш ИИ 'Палыч'?" -->
+        <section class="spacious-py bg-section-main">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-center">Почему 'Палыч' – Ваш <span class="text-accent-primary block mt-1 md:mt-2">Лучший Помощник?</span></h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                     <div class="card-default p-6 text-center">
+                        <div class="text-accent-primary mb-5 inline-flex items-center justify-center p-4 bg-blue-100 rounded-full">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-2">Глубокий Анализ</h3>
+                        <p class="text-secondary text-sm">ИИ обрабатывает огромные объемы данных: статистика, форма, тактика, новости, H2H.</p>
+                    </div>
+                    <div class="card-default p-6 text-center">
+                        <div class="text-accent-primary mb-5 inline-flex items-center justify-center p-4 bg-blue-100 rounded-full">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-2">Объективность</h3>
+                        <p class="text-secondary text-sm">Никаких эмоций – только холодный расчет и вероятности.</p>
+                    </div>
+                    <div class="card-default p-6 text-center">
+                        <div class="text-accent-primary mb-5 inline-flex items-center justify-center p-4 bg-blue-100 rounded-full">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-2">Экономия Времени</h3>
+                        <p class="text-secondary text-sm">Получайте готовые инсайты и экономьте часы на самостоятельном анализе.</p>
+                    </div>
+                    <div class="card-default p-6 text-center">
+                        <div class="text-accent-primary mb-5 inline-flex items-center justify-center p-4 bg-blue-100 rounded-full">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-2">Постоянное Обучение</h3>
+                        <p class="text-secondary text-sm">'Палыч' учится на каждом матче, становясь все точнее.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Блок: Как мы работаем (Процесс анализа) -->
+        <section class="spacious-py bg-section-alt">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-center">Как 'Палыч' <span class="text-accent-primary block mt-1 md:mt-2">Анализирует Матчи</span></h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 text-center">
+                    <div class="p-4 md:p-6">
+                        <div class="w-16 h-16 bg-accent-primary text-white rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
+                            <span class="text-2xl font-semibold">1</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-2">Сбор Данных</h3>
+                        <p class="text-secondary text-sm leading-relaxed">Анализ 127+ параметров: статистика команд и игроков, текущая форма, история встреч (H2H), новости, тактические схемы и многое другое.</p>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="w-16 h-16 bg-accent-primary text-white rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
+                            <span class="text-2xl font-semibold">2</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-2">Нейронная Сеть</h3>
+                        <p class="text-secondary text-sm leading-relaxed">Собранные данные обрабатываются нашими сложными алгоритмами машинного обучения и глубокими нейронными сетями, обученными на миллионах матчей.</p>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="w-16 h-16 bg-accent-primary text-white rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
+                            <span class="text-2xl font-semibold">3</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-2">Расчет Вероятностей</h3>
+                        <p class="text-secondary text-sm leading-relaxed">'Палыч' вычисляет вероятности всех ключевых исходов матча (победа, тотал, фора и т.д.) с высокой степенью точности.</p>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="w-16 h-16 bg-accent-primary text-white rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
+                            <span class="text-2xl font-semibold">4</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-2">Ваш Прогноз</h3>
+                        <p class="text-secondary text-sm leading-relaxed">Вы получаете структурированный, объективный и аргументированный прогноз с детальным описанием и рекомендуемыми вариантами.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок "Задай Вопрос 'Палычу'" -->
+<section class="spacious-py bg-section-main">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="md:flex md:items-start md:space-x-12">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="section-title">Есть Вопрос о Футболе? <span class="text-accent-primary block mt-1 md:mt-2">Спроси 'Палыча'!</span></h2>
+                <p class="text-secondary text-lg leading-relaxed mb-6">Наш ИИ-эксперт 'Палыч' готов ответить на ваши вопросы о тактике, игроках, истории футбола и многом другом. Проверьте его знания!</p>
+                <form id="ask-palych-form" class="space-y-4">
+                    <textarea id="palych-question" rows="4" class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-primary focus:border-transparent text-primary placeholder-gray-400 shadow-sm text-base" placeholder="Например: Какая команда чаще всего выигрывала Лигу Чемпионов?"></textarea>
+                    <button type="submit" class="w-full button-base button-outline font-semibold">Спросить Палыча</button>
+                </form>
+            </div>
+            <div class="md:w-1/2">
+                <div id="palych-answer-area" class="bg-gray-100 p-4 sm:p-6 rounded-lg shadow-md min-h-[260px] max-h-96 overflow-y-auto custom-scrollbar flex flex-col space-y-3.5">
+                    <!-- Приветственное сообщение Палыча -->
+                    <div id="palych-greeting-bubble" class="palych-chat-bubble">
+                        <p class="font-semibold"><strong>Палыч:</strong></p>
+                        <p id="palych-greeting" class="text-sm">Привет! Я Палыч. Задавай свой вопрос, и я постараюсь на него ответить.</p>
+                    </div>
+                    <!-- Сообщения пользователя и Палыча будут добавляться сюда скриптом -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Блок "Ближайшие Матчи / Примеры Прогнозов" -->
+        <section id="free-forecast" class="spacious-py bg-section-alt">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-center">Прогнозы 'Палыча' на <span class="text-accent-primary block mt-1 md:mt-2">Ближайшие Матчи</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <div class="match-card">
+                        <div class="match-card-inner card-default p-6 flex flex-col">
+                            <div class="match-card-content">
+                                <img src="img/match_card_1.png" alt="Изображение матча Команда Альфа vs Команда Бета" class="w-full h-44 object-cover rounded-md mb-4 shadow-md">
+                                <div class="flex items-center justify-between mb-2">
+                                    <div class="flex items-center"><img src="https://via.placeholder.com/24x24/FF0000/FFFFFF?text=A&txtsize=10" alt="Лого Альфа" class="w-5 h-5 mr-1.5 rounded-full"><span class="font-semibold text-primary text-sm">Команда Альфа</span></div>
+                                    <span class="text-secondary text-xs">vs</span>
+                                    <div class="flex items-center"><span class="font-semibold text-primary text-sm mr-1.5">Команда Бета</span><img src="https://via.placeholder.com/24x24/0000FF/FFFFFF?text=B&txtsize=10" alt="Лого Бета" class="w-5 h-5 rounded-full"></div>
+                                </div>
+                                <p class="text-xs text-secondary mb-2">Премьер Лига, 15 августа 2024, 22:00</p>
+                                <p class="text-gray-700 text-sm mb-4 leading-relaxed"><strong class="text-accent-secondary">Палыч:</strong> "Альфа сильна дома, Бета непредсказуема..."</p>
+                            </div>
+                            <a href="/match/123" class="text-orange-500 hover:text-orange-600 font-semibold text-sm transition-colors mt-auto pt-2 self-start">Читать полный анализ →</a>
+                        </div>
+                    </div>
+                    <div class="match-card">
+                        <div class="match-card-inner card-default p-6 border-2 border-accent-secondary relative flex flex-col">
+                             <div class="absolute top-4 right-4 bg-accent-warning text-black text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10">БЕСПЛАТНО</div>
+                            <div class="match-card-content">
+                                <img src="img/match_card_2_free.png" alt="Изображение бесплатного матча ФК Эпсилон vs ФК Дзета" class="w-full h-44 object-cover rounded-md mb-4 shadow-md">
+                                <div class="flex items-center justify-between mb-2">
+                                   <div class="flex items-center"><img src="https://via.placeholder.com/24x24/FFA500/000000?text=E&txtsize=10" alt="Лого Эпсилон" class="w-5 h-5 mr-1.5 rounded-full"><span class="font-semibold text-primary text-sm">ФК Эпсилон</span></div>
+                                    <span class="text-gray-600 text-xs">vs</span>
+                                    <div class="flex items-center"><span class="font-semibold text-primary text-sm mr-1.5">ФК Дзета</span><img src="https://via.placeholder.com/24x24/800080/FFFFFF?text=Z&txtsize=10" alt="Лого Дзета" class="w-5 h-5 rounded-full"></div>
+                                </div>
+                                <p class="text-xs text-gray-600 mb-2">Товарищеский матч, 17 августа 2024, 20:00</p>
+                                <p class="text-gray-700 text-sm mb-4 leading-relaxed"><strong class="text-accent-warning">Палыч:</strong> "Бесплатный прогноз! Эпсилон часто забивает..."</p>
+                            </div>
+                            <a href="/match/free-sample" class="text-yellow-600 hover:text-yellow-700 font-semibold text-sm transition-colors mt-auto pt-2 self-start">Читать полный анализ →</a>
+                        </div>
+                    </div>
+                     <div class="match-card">
+                        <div class="match-card-inner card-default p-6 flex flex-col">
+                            <div class="match-card-content">
+                                <img src="img/match_card_3.png" alt="Изображение матча ФК Гамма vs ФК Дельта" class="w-full h-44 object-cover rounded-md mb-4 shadow-md">
+                                <div class="flex items-center justify-between mb-2">
+                                   <div class="flex items-center"><img src="https://via.placeholder.com/24x24/FFFF00/000000?text=G&txtsize=10" alt="Лого Гамма" class="w-5 h-5 mr-1.5 rounded-full"><span class="font-semibold text-primary text-sm">ФК Гамма</span></div>
+                                    <span class="text-secondary text-xs">vs</span>
+                                    <div class="flex items-center"><span class="font-semibold text-primary text-sm mr-1.5">ФК Дельта</span><img src="https://via.placeholder.com/24x24/00FF00/000000?text=D&txtsize=10" alt="Лого Дельта" class="w-5 h-5 rounded-full"></div>
+                                </div>
+                                <p class="text-xs text-secondary mb-2">Кубок Страны, 16 августа 2024, 19:30</p>
+                                <p class="text-gray-700 text-sm mb-4 leading-relaxed"><strong class="text-accent-secondary">Палыч:</strong> "Гамма нестабильна. Дельта может воспользоваться..."</p>
+                            </div>
+                            <a href="/match/124" class="text-orange-500 hover:text-orange-600 font-semibold text-sm transition-colors mt-auto pt-2 self-start">Читать полный анализ →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="/matches/" class="button-base button-primary font-semibold text-base">Смотреть все прогнозы</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Новый блок "Наше Сообщество" вместо отзывов -->
+<section id="community-preview" class="spacious-py bg-section-alt"> <!-- Используем bg-section-alt для чередования -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 lg:mb-16">
+            <h2 class="section-title text-primary">Станьте Частью <span class="text-accent-primary block mt-1 md:mt-2">Сообщества PrognozAi</span></h2>
+            <p class="text-xl text-secondary max-w-2xl mx-auto leading-relaxed">
+                Вместе с тысячами участников мы улучшаем прогнозы, оцениваем ИИ, делимся инсайдами и поддерживаем развитие 'Палыча'. Ваше мнение делает нас лучше!
+            </p>
+        </div>
+        
+        <!-- 3 ключевых преимущества -->
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8 mb-12 lg:mb-16">
+            <div class="card-default p-6 text-center">
+                <div class="text-accent-primary text-5xl mb-4">🤝</div>
+                <h3 class="text-xl font-semibold text-primary mb-2">Обмен опытом</h3>
+                <p class="text-secondary text-sm leading-relaxed">Обсуждайте прогнозы, стратегии и новости футбола с 15,000+ единомышленников в нашем Telegram-чате.</p>
+            </div>
+            
+            <div class="card-default p-6 text-center">
+                <div class="text-accent-primary text-5xl mb-4">💡</div>
+                <h3 class="text-xl font-semibold text-primary mb-2">Эксклюзивный контент</h3>
+                <p class="text-secondary text-sm leading-relaxed">Получайте доступ к закрытым аналитическим материалам, AMA-сессиям с командой и превью новых функций.</p>
+            </div>
+            
+            <div class="card-default p-6 text-center">
+                <div class="text-accent-primary text-5xl mb-4">🎁</div>
+                <h3 class="text-xl font-semibold text-primary mb-2">Бонусы за Активность</h3>
+                <p class="text-secondary text-sm leading-relaxed">Зарабатывайте баллы за оценки прогнозов и инсайды, обменивайте их на скидки и бесплатные прогнозы.</p>
+            </div>
+        </div>
+
+        <!-- Живая статистика сообщества и Топ-активность -->
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+            <div class="card-default p-6 md:p-8">
+                <div class="flex items-center mb-6">
+                    <img src="img/palych_avatar_small.png" class="w-16 h-16 rounded-full mr-4 shadow-md" alt="Палыч">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary leading-tight">Палыч в Telegram</h3>
+                        <p class="text-secondary text-sm">Присоединяйтесь к обсуждению и задавайте вопросы напрямую нашему ИИ-ассистенту.</p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-secondary">Активных участников в чате:</span>
+                        <span class="font-semibold text-primary">2,340+</span>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-secondary">Сообщений за последние сутки:</span>
+                        <span class="font-semibold text-primary">850+</span>
+                    </div>
+                    <!-- Прогресс-бар для примера, можно привязать к цели роста сообщества -->
+                    <div class="pt-2">
+                        <p class="text-xs text-secondary mb-1 text-left">Рост активности за месяц:</p>
+                        <div class="progress-bar-container rating-progress-bar" data-current="65"> <!-- data-current как процент -->
+                            <div class="progress-bar-fill blue-style" style="width: 0%;">
+                                <!-- Текст можно добавить сюда, если бар достаточно высокий -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <a href="https://t.me/your_community_chat" target="_blank" rel="noopener noreferrer" class="button-base button-primary w-full mt-6 text-sm">
+                    Вступить в Telegram Чат
+                </a>
+            </div>
+
+            <div class="card-default p-6 md:p-8">
+                <h3 class="text-2xl font-semibold text-primary mb-6 leading-tight">Топ-активность за Неделю</h3>
+                <div class="space-y-5">
+                    <div class="flex items-center user-card p-3 rounded-md hover:bg-gray-50">
+                        <div class="w-10 h-10 bg-blue-100 text-accent-primary rounded-full flex items-center justify-center mr-4 text-lg font-semibold flex-shrink-0">🏆</div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-primary">@FootballPro1</p>
+                            <p class="text-secondary text-xs">42 оценки, 8 ценных инсайтов</p>
+                        </div>
+                        <span class="text-accent-secondary text-xs font-semibold whitespace-nowrap">+3 дня подписки</span>
+                    </div>
+                    <div class="flex items-center user-card p-3 rounded-md hover:bg-gray-50">
+                        <div class="w-10 h-10 bg-green-100 text-accent-secondary rounded-full flex items-center justify-center mr-4 text-lg font-semibold flex-shrink-0">🚀</div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-primary">@Anna_Analyst</p>
+                            <p class="text-secondary text-xs">27 полезных комментариев в чате</p>
+                        </div>
+                        <span class="text-accent-secondary text-xs font-semibold whitespace-nowrap">+1 бесплатный прогноз</span>
+                    </div>
+                     <div class="flex items-center user-card p-3 rounded-md hover:bg-gray-50">
+                        <div class="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mr-4 text-lg font-semibold flex-shrink-0">💡</div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-primary">@BetInsiderX</p>
+                            <p class="text-secondary text-xs">Предложил 2 улучшения для ИИ</p>
+                        </div>
+                        <span class="text-accent-secondary text-xs font-semibold whitespace-nowrap">Бонусные баллы</span>
+                    </div>
+                </div>
+                <div class="mt-6 bg-blue-50 p-4 rounded-lg text-center">
+                    <p class="text-sm text-secondary">🎉 Ваш вклад действительно помогает 'Палычу' становиться точнее! <a href="community.html#how-to-help" class="text-accent-primary hover:underline font-medium">Узнайте, как участвовать</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кнопка CTA -->
+        <div class="text-center mt-12 lg:mt-16">
+            <a href="community.html" 
+               class="button-base button-primary text-lg py-3.5 px-10">
+                Подробнее о Сообществе
+            </a>
+            <p class="text-sm text-secondary mt-4">Уже более 100 участников общаются и влияют на развитие PrognozAi!</p>
+        </div>
+    </div>
+</section>
+
+        <!-- Блок "Тарифные Планы" -->
+        <section class="pricing-section spacious-py">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-center">Выберите Свой Доступ к <span class="text-accent-primary block mt-1 md:mt-2">Прогнозам 'Палыча'</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                    <div class="pricing-card p-8 text-center md:text-left">
+                        <h3 class="text-2xl font-semibold mb-2 text-primary">Разовый Анализ</h3>
+                        <p class="text-secondary mb-4 text-sm min-h-[40px] md:min-h-[60px]">Прогноз на 1 выбранный матч для тех, кто хочет попробовать.</p>
+                        <div class="price my-4 text-accent-primary">199 ₽</div>
+                        <ul class="text-secondary space-y-1.5 mb-8 text-sm text-left min-h-[100px] md:min-h-[120px]">
+                            <li class="flex items-start"><svg class="w-4 h-4 mr-2 mt-0.5 text-accent-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Полный анализ одного матча</li>
+                            <li class="flex items-start"><svg class="w-4 h-4 mr-2 mt-0.5 text-accent-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Рекомендации по ставкам</li>
+                        </ul>
+                        <button class="button-base button-outline font-semibold w-full">Купить</button>
+                    </div>
+                    <div class="pricing-card popular p-8 text-center md:text-left">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-accent-warning text-black text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Популярный</div>
+                        <h3 class="text-2xl font-semibold mb-2 text-primary">Месячная Подписка</h3>
+                        <p class="text-secondary mb-4 text-sm min-h-[40px] md:min-h-[60px]">Лучшее предложение для регулярных пользователей и серьезных игроков.</p>
+                        <div class="price my-4 text-accent-primary">999 ₽</div>
+                        <ul class="text-secondary space-y-1.5 mb-8 text-sm text-left min-h-[100px] md:min-h-[120px]">
+                            <li class="flex items-start"><svg class="w-4 h-4 mr-2 mt-0.5 text-accent-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Доступ ко всем прогнозам</li>
+                            <li class="flex items-start"><svg class="w-4 h-4 mr-2 mt-0.5 text-accent-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Эксклюзивный Telegram-чат</li>
+                            <li class="flex items-start"><svg class="w-4 h-4 mr-2 mt-0.5 text-accent-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Ранний доступ к новым функциям</li>
+                            <li class="flex items-start"><svg class="w-4 h-4 mr-2 mt-0.5 text-accent-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Приоритетная поддержка</li>
+                        </ul>
+                        <button class="button-base button-primary font-semibold w-full">Оформить подписку</button>
+                    </div>
+                    <div class="pricing-card p-8 text-center md:text-left">
+                        <h3 class="text-2xl font-semibold mb-2 text-primary">Поддержка Проекта</h3>
+                        <p class="text-secondary mb-4 text-sm min-h-[40px] md:min-h-[60px]">Ваш вклад в развитие 'Палыча' и улучшение сервиса.</p>
+                        <div class="mt-auto">
+                            <input type="number" id="donation-amount" placeholder="Сумма, ₽" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-accent-primary text-primary placeholder-gray-400 shadow-sm text-base">
+                            <div class="flex space-x-2 mb-6">
+                                <button data-amount="250" class="donation-btn flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-2 rounded-md text-sm transition-colors">250₽</button>
+                                <button data-amount="500" class="donation-btn flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-2 rounded-md text-sm transition-colors">500₽</button>
+                                <button data-amount="1000" class="donation-btn flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-2 rounded-md text-sm transition-colors">1000₽</button>
+                            </div>
+                            <button class="button-base button-outline font-semibold w-full">Поддержать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок "Станьте Частью Проекта!" -->
+        <section class="spacious-py bg-section-alt">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="section-title text-center">Помогите 'Палычу' Стать <span class="text-accent-primary block mt-1 md:mt-2">Еще Умнее!</span></h2>
+                <p class="text-lg text-secondary mb-10 max-w-3xl mx-auto leading-relaxed">Ваши знания и наблюдательность бесценны! Оценивайте прогнозы, сообщайте о важных новостях и влияйте на точность ИИ. Активные участники получают бонусы!</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10">
+                    <div class="card-default p-6">
+                         <svg class="w-10 h-10 mx-auto mb-4 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+                        <h3 class="text-primary text-lg font-semibold">Оценивайте прогнозы</h3>
+                        <p class="text-sm text-secondary mt-1">Ваш фидбек улучшает алгоритмы.</p>
+                    </div>
+                    <div class="card-default p-6">
+                         <svg class="w-10 h-10 mx-auto mb-4 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+                        <h3 class="text-primary text-lg font-semibold">Сообщайте инсайды</h3>
+                        <p class="text-sm text-secondary mt-1">Делитесь важной информацией.</p>
+                    </div>
+                    <div class="card-default p-6">
+                        <svg class="w-10 h-10 mx-auto mb-4 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m0 0L7.523 12.523M12 17.747l4.477-5.224M6.375 12H17.625" /></svg>
+                        <h3 class="text-primary text-lg font-semibold">Получайте бонусы</h3>
+                        <p class="text-sm text-secondary mt-1">За активный вклад в проект.</p>
+                    </div>
+                </div>
+                <a href="/community/contribute/" class="button-base button-primary font-semibold text-base">Узнать больше о вкладе</a>
+            </div>
+        </section>
+
+        <!-- Блок "Смотрим Футбол Вместе с 'Палычем'!" -->
+        <section class="spacious-py bg-section-main">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="section-title text-center">Мечтаем о Своем <span class="text-orange-500 block mt-1 md:mt-2">Стрим-Сервере!</span></h2>
+                <p class="text-lg text-secondary mb-10 max-w-2xl mx-auto leading-relaxed">Поддержите создание платформы для совместных просмотров матчей с комментариями 'Палыча' и футбольных экспертов!</p>
+                <div class="mb-10">
+                    <img src="img/palych_stream_server.png" alt="Палыч комментирует матч на стрим-сервере" class="max-w-md lg:max-w-lg mx-auto rounded-xl shadow-xl border border-gray-200">
+                </div>
+                <div class="progress-bar-container w-full max-w-xl mx-auto mb-2 shadow-sm">
+                    <div id="progress-bar-fill" style="width: 0%;">
+                        <span id="progress-bar-text">Собрано: 0 ₽</span>
+                    </div>
+                </div>
+                <p class="progress-goal-text mb-8">Цель: <span id="progress-goal" class="font-medium text-primary">2 300 000</span> ₽</p>
+                <div class="mb-10">
+                    <h4 class="text-xl font-semibold text-primary mb-4">Последние донаты:</h4>
+                    <ul class="text-secondary text-sm space-y-2 max-w-sm mx-auto">
+                        <li class="bg-gray-100 p-3 rounded-lg shadow-sm text-left">Аноним - <span class="font-medium text-primary">500 ₽</span></li>
+                        <li class="bg-gray-100 p-3 rounded-lg shadow-sm text-left">FootballFan22 - <span class="font-medium text-primary">1000 ₽</span></li>
+                        <li class="bg-gray-100 p-3 rounded-lg shadow-sm text-left">ПалычуНаКофе - <span class="font-medium text-primary">250 ₽</span></li>
+                    </ul>
+                </div>
+                <a href="/donate-stream" class="button-base button-secondary font-semibold text-base">Поддержать мечту 'Палыча'</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер (Подвал сайта) -->
+    <footer class="bg-footer py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+                <div class="mb-6 md:mb-0">
+                    <a href="/" class="inline-block mb-3">
+                        <img src="img/logo.png" alt="PrognozAi.ru" class="h-8 w-auto opacity-90 hover:opacity-100 transition-opacity">
+                    </a>
+                    <p class="text-secondary">© PrognozAi.ru, <span id="current-year"></span>.<br>Все права защищены.</p>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-primary mb-3 uppercase tracking-wider text-xs">Навигация</h5>
+                    <ul class="space-y-2">
+                        <li><a href="/about-ai/" class="text-secondary hover:text-accent-primary transition-colors">О проекте</a></li>
+                        <li><a href="/matches/" class="text-secondary hover:text-accent-primary transition-colors">Прогнозы</a></li>
+                        <li><a href="/pricing/" class="text-secondary hover:text-accent-primary transition-colors">Тарифы</a></li>
+                        <li><a href="/faq/" class="text-secondary hover:text-accent-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-primary mb-3 uppercase tracking-wider text-xs">Информация</h5>
+                    <ul class="space-y-2">
+                        <li><a href="/privacy-policy/" class="text-secondary hover:text-accent-primary transition-colors">Политика конфиденциальности</a></li>
+                        <li><a href="/terms-of-service/" class="text-secondary hover:text-accent-primary transition-colors">Пользовательское соглашение</a></li>
+                        <li><a href="/contacts/" class="text-secondary hover:text-accent-primary transition-colors">Контакты</a></li>
+                         <li class="mt-3">
+                            <a href="https://t.me/yourchannel" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-secondary hover:text-accent-primary transition-colors">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M11.984 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0zm4.903 7.822l-1.534 7.209c-.128.601-.526.753-.995.474l-2.285-1.677-1.102 1.057c-.121.12-.224.223-.407.223-.217 0-.334-.084-.469-.223l-1.102-1.057-2.285 1.677c-.47.279-.867.127-.995-.474L5.08 7.822c-.154-.722.407-.977.995-.753l10.013 3.917c.726.28.726.68.128.864l-2.55 1.875 5.13-4.83c.224-.21.099-.33-.154-.113z"/></svg>
+                                Telegram Канал
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 text-xs mt-10 border-t border-gray-200 pt-8">
+                PrognozAi.ru не является букмекерской конторой и не принимает ставки. Информация предоставляется в ознакомительных целях. Играйте ответственно. 18+
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
